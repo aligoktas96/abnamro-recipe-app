@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: recipe-service
+
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+    driverClassName: org.postgresql.Driver
+  properties:
+    hibernate:
+      default_schema: recipe
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+
+springdoc:
+  swagger-ui:
+    path: /doc
+
+server:
+  port: 8080

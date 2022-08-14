@@ -1,0 +1,17 @@
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+  datasource:
+    url: ${DATABASE_URL}
+    username: sample-user
+    password: sample-strong-password
+
+springdoc:
+  swagger-ui:
+    path: /doc
+
+server:
+  port: 8080
