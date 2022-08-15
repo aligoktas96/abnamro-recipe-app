@@ -4,7 +4,7 @@ import com.assignment.abnamro.TestInitializer;
 import com.assignment.abnamro.common.DataProvider;
 import com.assignment.abnamro.model.entity.Recipe;
 import com.assignment.abnamro.model.entity.RecipeIngredient;
-import org.junit.jupiter.api.Assertions;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Spy;
@@ -17,6 +17,8 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 @DataJpaTest
 @Testcontainers
 @ExtendWith(SpringExtension.class)
@@ -25,7 +27,7 @@ import java.util.List;
 class RecipeRepositoryTest {
 
     @Spy
-    DataProvider dataProvider;
+    private DataProvider dataProvider;
 
     @Autowired
     private RecipeRepository recipeRepository;
@@ -34,9 +36,9 @@ class RecipeRepositoryTest {
     void shouldCreateRecipe() {
         Recipe recipe = dataProvider.getRecipe();
 
-        Assertions.assertNull(recipe.getId());
+        assertNull(recipe.getId());
         recipeRepository.save(recipe);
-        Assertions.assertNotNull(recipe.getId());
+        assertNotNull(recipe.getId());
     }
 
     @Test
@@ -54,7 +56,7 @@ class RecipeRepositoryTest {
         recipeRepository.save(updated);
 
         String updatedName = recipeRepository.findById(recipe.getId()).get().getName();
-        Assertions.assertEquals(updatedName, beforeName);
+        assertEquals(updatedName, beforeName);
     }
 
     @Test
@@ -67,7 +69,7 @@ class RecipeRepositoryTest {
 
         boolean isPresent = recipeRepository.findById(recipe.getId()).isPresent();
 
-        Assertions.assertFalse(isPresent);
+        assertFalse(isPresent);
     }
 
     @Test
@@ -96,13 +98,13 @@ class RecipeRepositoryTest {
 
         List<Recipe> cheese = recipeRepository.findByIngredients("Cheese");
 
-        Assertions.assertNotNull(cheese);
+        assertNotNull(cheese);
 
-        Assertions.assertEquals(2, cheese.size());
+        assertEquals(2, cheese.size());
 
-        Assertions.assertEquals(cheese.get(0).getName(),"Pizza");
+        assertEquals(cheese.get(0).getName(),"Pizza");
 
-        Assertions.assertEquals(cheese.get(1).getName(),"Cheesecake");
+        assertEquals(cheese.get(1).getName(),"Cheesecake");
 
     }
 

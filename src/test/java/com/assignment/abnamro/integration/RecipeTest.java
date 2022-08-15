@@ -32,10 +32,9 @@ public class RecipeTest {
 
     private static final ObjectMapper mapper = new ObjectMapper();
     @Autowired
-    DataProvider dataProvider;
-
+    private DataProvider dataProvider;
     @Autowired
-    RecipeService service;
+    private RecipeService service;
     @Autowired
     private MockMvc mockMvc;
 

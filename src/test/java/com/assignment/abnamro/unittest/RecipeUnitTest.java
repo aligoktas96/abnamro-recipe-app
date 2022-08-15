@@ -48,18 +48,6 @@ public class RecipeUnitTest {
     }
 
     @Test
-    void shouldTriggerGetMethod(){
-
-//        Recipe sampleGet = mapper.getDTOToEntity(dataProvider.getRecipeRequest());
-//        Recipe sampleRecipe = dataProvider.getRecipe();
-//        when(mapper.createDTOToEntity(sampleCreateRequest)).thenReturn(sampleRecipe);
-//
-//        recipeService.createRecipe(sampleCreateRequest);
-//
-//        verify(recipeRepository, times(1)).save(sampleRecipe);
-    }
-
-    @Test
     void shouldTriggerUpdateMethod(){
         //Arrange
         UpdateRecipeRequest sampleUpdateRequest = dataProvider.getUpdateRecipeRequest();
